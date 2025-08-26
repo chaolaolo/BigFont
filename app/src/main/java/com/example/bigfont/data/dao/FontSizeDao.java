@@ -2,6 +2,7 @@ package com.example.bigfont.data.dao;
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
+import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -22,6 +23,17 @@ public interface FontSizeDao {
     @Query("SELECT * FROM font_sizes WHERE isDefault = 1 LIMIT 1")
     FontSize getDefaultFontSize();
 
+    @Query("SELECT * FROM font_sizes WHERE sizeInPercent = :sizeInPercent LIMIT 1")
+    FontSize getFontSizeByValue(int sizeInPercent);
+
     @Query("DELETE FROM font_sizes")
     void deleteAll();
+
+    @Delete
+    void delete(FontSize fontSize);
+
+    @Update
+    void update(FontSize fontSize);
+
+
 }

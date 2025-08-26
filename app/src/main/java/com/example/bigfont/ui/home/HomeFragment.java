@@ -13,9 +13,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.provider.Settings;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.SeekBar;
 import android.widget.Toast;
 
 import com.example.bigfont.R;
@@ -45,20 +47,63 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        HomeViewModel homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
+        homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
 
         fontSizeAdapter = new FontSizeAdapter(this);
         binding.rvListCustomSize.setLayoutManager(new LinearLayoutManager(getContext()));
         binding.rvListCustomSize.setAdapter(fontSizeAdapter);
 
+        binding.progressBar.setVisibility(View.VISIBLE);
+        binding.contentScrollView.setVisibility(View.GONE);
+        homeViewModel.isDataReady.observe(getViewLifecycleOwner(), isReady -> {
+            if (isReady) {
+                // Khi dữ liệu đã sẵn sàng, ẩn ProgressBar và hiển thị nội dung chính
+                binding.progressBar.setVisibility(View.GONE);
+                binding.contentScrollView.setVisibility(View.VISIBLE);
+            }
+        });
+
         homeViewModel.fontSizes.observe(getViewLifecycleOwner(), fontSizes -> {
             fontSizeAdapter.setFontSizes(fontSizes);
+            updateCurrentFontScaleUI();
+        });
+
+        binding.sbCustomSize.setMax(350 - 50);
+        updateCurrentFontScaleUI();
+
+        binding.sbCustomSize.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int fontSizeInPercent = 50 + progress;
+
+                binding.txtCustomSizeValue.setText(fontSizeInPercent + "%");
+                float newSizeSp = 14f * (fontSizeInPercent / 100f);
+                binding.contentTextView1.setTextSize(newSizeSp);
+                binding.contentTextView2.setTextSize(newSizeSp);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
         });
 
         binding.btnSave.setOnClickListener(v -> {
             if (hasWriteSettingsPermission()) {
                 // Thực hiện lưu cỡ chữ tùy chỉnh
-                // homeViewModel.saveCustomFontSize(binding.sbCustomSize.getProgress());
+                int fontSizeInPercent = 50 + binding.sbCustomSize.getProgress();
+                homeViewModel.insert(new FontSize(fontSizeInPercent, false));
+                updateCurrentFontScaleUI();
+                Settings.System.putFloat(
+                        requireContext().getContentResolver(),
+                        Settings.System.FONT_SCALE,
+                        fontSizeInPercent / 100f
+                );
                 Toast.makeText(getContext(), "Lưu cỡ chữ tùy chỉnh", Toast.LENGTH_SHORT).show();
             } else {
                 showPermissionRequiredDialog();
@@ -67,9 +112,10 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
 
         binding.btnResetToDefault.setOnClickListener(v -> {
             if (hasWriteSettingsPermission()) {
-                // Thực hiện đặt lại cỡ chữ mặc định
-                // homeViewModel.resetToDefault();
+                homeViewModel.resetToDefault();
+                Settings.System.putFloat(requireContext().getContentResolver(), Settings.System.FONT_SCALE, 1.0f);
                 Toast.makeText(getContext(), "Đặt lại cỡ chữ mặc định", Toast.LENGTH_SHORT).show();
+                updateCurrentFontScaleUI();
             } else {
                 showPermissionRequiredDialog();
             }
@@ -101,12 +147,35 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
                 .show();
     }
 
+    private void updateCurrentFontScaleUI() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            float fontScale = Settings.System.getFloat(
+                    requireContext().getContentResolver(),
+                    Settings.System.FONT_SCALE,
+                    1.0f
+            );
+            int fontScaleInPercent = (int) (fontScale * 100);
+            // Cập nhật SeekBar và TextView
+            binding.sbCustomSize.setProgress(fontScaleInPercent - 50);
+            binding.txtCustomSizeValue.setText(fontScaleInPercent + "%");
+
+            // Cập nhật cỡ chữ mẫu
+            float newSizeSp = 14f * (fontScaleInPercent / 100f);
+            binding.contentTextView1.setTextSize(newSizeSp);
+            binding.contentTextView2.setTextSize(newSizeSp);
+
+            // Cập nhật Adapter để hiển thị trạng thái "HIỆN TẠI"
+            fontSizeAdapter.setCurrentFontScale(fontScaleInPercent);
+        }
+    }
+
     @Override
     public void onResume() {
         super.onResume();
         if (!hasWriteSettingsPermission()) {
             showPermissionRequiredDialog();
         }
+        updateCurrentFontScaleUI();
     }
 
     @Override
@@ -119,8 +188,14 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
     public void onApplyClick(FontSize fontSize) {
         if (hasWriteSettingsPermission()) {
             // Cập nhật cỡ chữ hiện tại trong database và hệ thống
-//            homeViewModel.applyFontSize(fontSize);
+            homeViewModel.applyFontSize(fontSize);
+            Settings.System.putFloat(
+                    requireContext().getContentResolver(),
+                    Settings.System.FONT_SCALE,
+                    fontSize.getSizeInPercent() / 100f
+            );
             Toast.makeText(getContext(), "Đã áp dụng cỡ chữ " + fontSize.getSizeInPercent() + "%", Toast.LENGTH_SHORT).show();
+            updateCurrentFontScaleUI();
         } else {
             showPermissionRequiredDialog();
         }
@@ -130,7 +205,7 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
     public void onDeleteClick(FontSize fontSize) {
         if (hasWriteSettingsPermission()) {
             // Xóa cỡ chữ khỏi database
-//            homeViewModel.deleteFontSize(fontSize);
+            homeViewModel.deleteFontSize(fontSize);
             Toast.makeText(getContext(), "Đã xóa cỡ chữ " + fontSize.getSizeInPercent() + "%", Toast.LENGTH_SHORT).show();
         } else {
             showPermissionRequiredDialog();

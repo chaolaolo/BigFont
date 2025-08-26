@@ -32,5 +32,15 @@ public class FontSizeRepository {
         });
     }
 
-    // Bạn có thể thêm các phương thức khác như update, delete tại đây
+    public void delete(FontSize fontSize) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            fontSizeDao.delete(fontSize);
+        });
+    }
+
+    public void update(FontSize fontSize) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            fontSizeDao.update(fontSize);
+        });
+    }
 }

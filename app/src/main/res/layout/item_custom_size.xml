@@ -48,8 +48,8 @@
                 android:textSize="16sp" />
 
             <Button
-                android:layout_width="wrap_content"
                 android:id="@+id/btn_apply"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/primary_outline"
                 android:text="@string/apply"

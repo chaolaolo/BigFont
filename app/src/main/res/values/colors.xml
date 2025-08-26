@@ -17,4 +17,10 @@
     <color name="colorGreen200">#7CDFC4</color>
     <color name="colorGreen100">#BEEFE2</color>
     <color name="colorGreen50">#E4F9F3</color>
+
+    <!--warning-->
+    <color name="colorWarning500">#FF9800</color>
+    <color name="colorWarning300">#FFB74D</color>
+    <color name="colorWarning200">#FFCC80</color>
+    <color name="colorWarning50">#FFF3E0</color>
 </resources>

@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.bigfont.R;
@@ -18,10 +19,12 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
 
     private List<FontSize> fontSizes;
     private OnItemClickListener listener;
+    private int currentFontScale;
 
     // Interface để xử lý sự kiện click
     public interface OnItemClickListener {
         void onApplyClick(FontSize fontSize);
+
         void onDeleteClick(FontSize fontSize);
     }
 
@@ -31,6 +34,11 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
 
     public void setFontSizes(List<FontSize> fontSizes) {
         this.fontSizes = fontSizes;
+        notifyDataSetChanged();
+    }
+
+    public void setCurrentFontScale(int currentFontScale) {
+        this.currentFontScale = currentFontScale;
         notifyDataSetChanged();
     }
 
@@ -48,7 +56,7 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
     @Override
     public void onBindViewHolder(@NonNull FontSizeViewHolder holder, int position) {
         FontSize currentFontSize = fontSizes.get(position);
-        holder.bind(currentFontSize);
+        holder.bind(currentFontSize, currentFontScale);
     }
 
     @Override
@@ -66,8 +74,11 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
             this.listener = listener;
         }
 
-        public void bind(FontSize fontSize) {
+        public void bind(FontSize fontSize, int currentFontScale) {
+            float newTextSizeSp = 14f * (fontSize.getSizeInPercent() / 100f);
+            binding.txtSampleText.setTextSize(newTextSizeSp);
             binding.txtCustomSizeValue.setText(String.valueOf(fontSize.getSizeInPercent()) + "%");
+            binding.txtCustomSizeValue.setTextSize(newTextSizeSp);
 
             // Thiết lập sự kiện click cho nút "Áp dụng"
             binding.btnApply.setOnClickListener(v -> {
@@ -84,13 +95,17 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
             });
 
             // Cập nhật text của nút "Áp dụng" nếu đây là cỡ chữ mặc định
-            if (fontSize.isDefault()) {
+            if (fontSize.getSizeInPercent() == currentFontScale) {
                 binding.btnApply.setText("HIỆN TẠI");
-                binding.btnApply.setEnabled(false); // Vô hiệu hóa nút "Áp dụng" cho cỡ chữ hiện tại
-                binding.btnDelete.setVisibility(View.GONE); // Ẩn nút "Xóa"
+                binding.btnApply.setEnabled(false);
+                binding.btnApply.setBackgroundResource(R.drawable.warning_outline);
+                binding.btnApply.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(), R.color.colorWarning500));
+                binding.btnDelete.setVisibility(View.GONE);
             } else {
                 binding.btnApply.setText("ÁP DỤNG");
                 binding.btnApply.setEnabled(true);
+                binding.btnApply.setBackgroundResource(R.drawable.primary_outline);
+                binding.btnApply.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(), R.color.colorPrimaryDark));
                 binding.btnDelete.setVisibility(View.VISIBLE);
             }
         }

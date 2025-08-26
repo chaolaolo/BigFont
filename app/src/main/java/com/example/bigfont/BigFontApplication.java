@@ -9,6 +9,6 @@ public class BigFontApplication extends Application {
     public void onCreate() {
         super.onCreate();
         AppDatabase.getDatabase(this);
-        AppDatabase.initializeData();
+//        AppDatabase.initializeData();
     }
 }
