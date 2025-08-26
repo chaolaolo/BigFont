@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Big Font</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_page">Trang chủ</string>
+    <string name="setting">Cài đặt</string>
+    <string name="tip">Mẹo</string>
+    <string name="font_weight">Độ dày phông chữ</string>
+    <string name="sample_text_1">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</string>
+    <string name="sample_text_2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</string>
+    <string name="sample_text_title">Văn bản mẫu:</string>
+    <string name="make_change_text_size">Làm cho văn bản nhỏ hơn hoặc lớn hơn</string>
+    <string name="reset_to_default">Đặt lại mặc định</string>
+    <string name="save">Lưu</string>
+    <string name="apply">Áp dụng</string>
+    <string name="make_change_text_font_weight">Làm cho chữ đậm hơn nhạt hơn</string>
+    <string name="theme">Chủ đề</string>
+    <string name="language">Ngôn ngữ</string>
+    <string name="dark_theme">Chế độ tối</string>
+    <string name="delete">Xoá</string>
+</resources>

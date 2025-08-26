@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/round_home"
+        android:title="@string/home_page" />
+    <item
+        android:id="@+id/nav_font_weight"
+        android:icon="@drawable/round_format_bold"
+        android:title="@string/font_weight" />
+    <item
+        android:id="@+id/nav_tips"
+        android:icon="@drawable/round_tips_and_updates"
+        android:title="@string/tip" />
+    <item
+        android:id="@+id/nav_settings"
+        android:icon="@drawable/round_settings"
+        android:title="@string/setting" />
+</menu>
