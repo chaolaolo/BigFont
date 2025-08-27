@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Big Font</string>
+    <string name="hello_blank_fragment">Hola fragmento en blanco</string>
+    <string name="home_page">Página de inicio</string>
+    <string name="setting">Ajustes</string>
+    <string name="tip">Consejos</string>
+    <string name="font_weight">Peso de la fuente</string>
+    <string name="sample_text_1">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</string>
+    <string name="sample_text_2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</string>
+    <string name="sample_text_title">Texto de ejemplo:</string>
+    <string name="make_change_text_size">Hacer el texto más pequeño o más grande</string>
+    <string name="reset_to_default">Restablecer a predeterminado</string>
+    <string name="save">Guardar</string>
+    <string name="apply">Aplicar</string>
+    <string name="make_change_text_font_weight">Hacer el texto más o menos audaz</string>
+    <string name="theme">Tema</string>
+    <string name="language">Idioma</string>
+    <string name="dark_theme">Tema oscuro</string>
+    <string name="delete">Eliminar</string>
+    <string name="using">EN USO</string>
+    <string name="require_permission">Permiso requerido</string>
+    <string name="u_need_to_accept_permission">Debe otorgar permiso para cambiar el tamaño de la fuente del sistema. Por favor, otórguelo en la configuración.</string>
+    <string name="cancel">Cancelar</string>
+    <string name="dont_have_permission">Sin permiso, no se puede realizar la operación.</string>
+    <string name="save_font_size">"Tamaño de fuente guardado "</string>
+    <string name="applied_font_size">"Tamaño de fuente aplicado "</string>
+    <string name="deleted_font_size">"Tamaño de fuente eliminado "</string>
+    <string name="dismiss">Descartar</string>
+    <string name="applied_font_weight">Peso de la fuente aplicado: %1$s</string>
+    <string name="reset_to_default_font_weight">Peso de la fuente restablecido a predeterminado.</string>
+    <string name="current">Actual</string>
+    <string name="choose_a_language">Elige tu idioma</string>
+    <string name="vietnamese">Vietnamita</string>
+    <string name="english">Inglés</string>
+    <string name="french">Francés</string>
+    <string name="german">Alemán</string>
+    <string name="chinese">Chino</string>
+    <string name="japanese">Japonés</string>
+    <string name="spanish">Español</string>
+    <string name="russian">Ruso</string>
+    <string name="portuguese">Portugués</string>
+    <string name="korean">Coreano</string>
+    <string name="italian">Italiano</string>
+    <string name="arabic">Árabe</string>
+    <string name="thai">Tailandés</string>
+    <string name="laos">Laosiano</string>
+
+    <string name="tip_elderly_title">eng</string>
+    <string name="tip_elderly_description">eng</string>
+    <string name="tip_sunlight_title">engDành cho Đọc dưới Ánh Sáng Mặt Trời</string>
+    <string name="tip_sunlight_description">engĐặt kích thước phông chữ vào khoảng 110% đến 130% để cải thiện khả năng đọc dưới ánh sáng mặt trời. Điều này giảm độ chói và cải thiện độ tương phản.</string>
+
+</resources>

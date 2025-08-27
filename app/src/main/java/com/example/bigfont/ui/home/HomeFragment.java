@@ -84,8 +84,8 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
                         int size = Integer.parseInt(parts[1]);
                         showSnackbar(getString(R.string.save_font_size) + size + "%", true);
                     }
-
                 }
+//                homeViewModel.clearSnackbarMessage();
             }
         });
 

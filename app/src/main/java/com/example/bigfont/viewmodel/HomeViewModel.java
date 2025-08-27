@@ -7,6 +7,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.bigfont.R;
 import com.example.bigfont.data.dao.FontSizeDao;
 import com.example.bigfont.data.database.AppDatabase;
 import com.example.bigfont.data.entity.FontSize;
@@ -31,6 +32,9 @@ public class HomeViewModel extends AndroidViewModel {
 
     private final MutableLiveData<String> _snackbarMessage = new MutableLiveData<>();
     public LiveData<String> snackbarMessage = _snackbarMessage;
+
+    private final MutableLiveData<Boolean> _uiUpdateNeeded = new MutableLiveData<>();
+    public LiveData<Boolean> uiUpdateNeeded = _uiUpdateNeeded;
 
     public HomeViewModel(@NonNull Application application) {
         super(application);
@@ -124,8 +128,6 @@ public class HomeViewModel extends AndroidViewModel {
         });
     }
 
-// Trong HomeViewModel.java
-
     public void insertAndSave(FontSize fontSize, int newFontScale) {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             // Thực hiện chèn dữ liệu
@@ -139,6 +141,7 @@ public class HomeViewModel extends AndroidViewModel {
 
             // Gửi thông điệp thông báo cho Fragment, bao gồm cả giá trị mới
             _snackbarMessage.postValue("save_font_size:" + newFontScale);
+            _uiUpdateNeeded.postValue(true);
         });
     }
 
@@ -147,6 +150,7 @@ public class HomeViewModel extends AndroidViewModel {
         AppDatabase.databaseWriteExecutor.execute(() -> {
             repository.delete(fontSize);
             loadFontSizes();
+            _uiUpdateNeeded.postValue(true);
         });
     }
 
@@ -164,6 +168,7 @@ public class HomeViewModel extends AndroidViewModel {
             repository.update(newFontSize);
             loadFontSizes(); // Tải lại danh sách để cập nhật UI
             _snackbarMessage.postValue("applied_font_size:" + newFontSize.getSizeInPercent());
+            _uiUpdateNeeded.postValue(true);
         });
     }
 
@@ -180,10 +185,18 @@ public class HomeViewModel extends AndroidViewModel {
                 // Cập nhật lại danh sách để phản ánh sự thay đổi
                 loadFontSizes();
                 _snackbarMessage.postValue("reset_to_default");
+                _uiUpdateNeeded.postValue(true);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         });
     }
 
+    public void clearSnackbarMessage() {
+        _snackbarMessage.postValue(null);
+    }
+
+    public void resetUiUpdateNeeded() {
+        _uiUpdateNeeded.postValue(false);
+    }
 }

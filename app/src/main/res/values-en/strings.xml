@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Big Font</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_page">Home Page</string>
+    <string name="setting">Settings</string>
+    <string name="tip">Tips</string>
+    <string name="font_weight">Font Weight</string>
+    <string name="sample_text_1">Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?</string>
+    <string name="sample_text_2">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</string>
+    <string name="sample_text_title">Sample Text:</string>
+    <string name="make_change_text_size">Make text smaller or larger</string>
+    <string name="reset_to_default">Reset to default</string>
+    <string name="save">Save</string>
+    <string name="apply">Apply</string>
+    <string name="make_change_text_font_weight">Make text bolder or lighter</string>
+    <string name="theme">Theme</string>
+    <string name="language">Language</string>
+    <string name="dark_theme">Dark theme</string>
+    <string name="delete">Delete</string>
+    <string name="using">USING</string>
+    <string name="require_permission">Permission required</string>
+    <string name="u_need_to_accept_permission">You need to grant permission to change the system font size. Please grant permission in settings.</string>
+    <string name="cancel">Cancel</string>
+    <string name="dont_have_permission">No permission, can\'t perform the operation.</string>
+    <string name="save_font_size">"Font size saved "</string>
+    <string name="applied_font_size">"Font size applied "</string>
+    <string name="deleted_font_size">"Font size deleted "</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="applied_font_weight">Font weight applied: %1$s</string>
+    <string name="reset_to_default_font_weight">Font weight reset to default.</string>
+    <string name="current">Current</string>
+    <string name="choose_a_language">Choose your language</string>
+    <string name="vietnamese">Vietnamese</string>
+    <string name="english">English</string>
+    <string name="french">French</string>
+    <string name="german">German</string>
+    <string name="chinese">Chinese</string>
+    <string name="japanese">Japanese</string>
+    <string name="spanish">Spanish</string>
+    <string name="russian">Russian</string>
+    <string name="portuguese">Portuguese</string>
+    <string name="korean">Korean</string>
+    <string name="italian">Italian</string>
+    <string name="arabic">Arabic</string>
+    <string name="thai">Thai</string>
+    <string name="laos">Lao</string>
+
+<!--    tips-->
+    <string name="tip_elderly_title">eng</string>
+    <string name="tip_elderly_description">eng</string>
+    <string name="tip_sunlight_title">engDành cho Đọc dưới Ánh Sáng Mặt Trời</string>
+    <string name="tip_sunlight_description">engĐặt kích thước phông chữ vào khoảng 110% đến 130% để cải thiện khả năng đọc dưới ánh sáng mặt trời. Điều này giảm độ chói và cải thiện độ tương phản.</string>
+
+
+</resources>

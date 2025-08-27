@@ -1,5 +1,8 @@
 package com.example.bigfont.ui;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
 
@@ -18,9 +21,29 @@ import com.example.bigfont.R;
 import com.example.bigfont.databinding.ActivityMainBinding;
 
 import java.util.HashSet;
+import java.util.Locale;
 import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
+
+    private static final String PREFS_NAME = "MyPrefsFile";
+    private static final String LANGUAGE_KEY = "language_key";
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        // Lấy ngôn ngữ đã lưu từ SharedPreferences
+        SharedPreferences prefs = newBase.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        String lang = prefs.getString(LANGUAGE_KEY, "vi"); // "vi" là ngôn ngữ mặc định
+
+        // Tạo Locale mới và cập nhật Configuration
+        Locale locale = new Locale(lang);
+        Configuration config = newBase.getResources().getConfiguration();
+        config.setLocale(locale);
+
+        // Tạo Context mới với Configuration đã cập nhật
+        Context context = newBase.createConfigurationContext(config);
+        super.attachBaseContext(context);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
