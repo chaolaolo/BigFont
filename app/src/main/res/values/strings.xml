@@ -26,4 +26,7 @@
     <string name="applied_font_size">"Đã áp dụng cỡ chữ "</string>
     <string name="deleted_font_size">"Đã xóa cỡ chữ "</string>
     <string name="dismiss">Đóng</string>
+    <string name="applied_font_weight">Đã áp dụng độ dày phông chữ: %1$s</string>
+    <string name="reset_to_default_font_weight">Đã đặt lại độ dày phông chữ về mặc định.</string>
+    <string name="current">Hiện tại</string>
 </resources>

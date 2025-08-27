@@ -9,18 +9,22 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.example.bigfont.data.dao.FontSizeDao;
+import com.example.bigfont.data.dao.FontWeightDao;
 import com.example.bigfont.data.dao.TipDao;
 import com.example.bigfont.data.entity.FontSize;
+import com.example.bigfont.data.entity.FontWeight;
 import com.example.bigfont.data.entity.Tip;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {FontSize.class, Tip.class}, version = 1, exportSchema = false)
+@Database(entities = {FontSize.class, Tip.class, FontWeight.class}, version = 1, exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract FontSizeDao fontSizeDao();
 
     public abstract TipDao tipDao();
+
+    public abstract FontWeightDao fontWeightDao();
 
     private static volatile AppDatabase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;
