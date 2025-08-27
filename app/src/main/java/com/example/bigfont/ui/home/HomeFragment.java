@@ -77,15 +77,23 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
                         showSnackbar(getString(R.string.applied_font_size) + size + "%", true);
                     }
                 } else if (message.equals("reset_to_default")) {
-                    showSnackbar(getString(R.string.reset_to_default) + "100%", true);
+                    showSnackbar(getString(R.string.reset_to_default) + " 100%", true);
                 } else if (message.startsWith("save_font_size")) {
                     String[] parts = message.split(":");
-                    if(parts.length>1){
+                    if (parts.length > 1) {
                         int size = Integer.parseInt(parts[1]);
                         showSnackbar(getString(R.string.save_font_size) + size + "%", true);
                     }
                 }
-//                homeViewModel.clearSnackbarMessage();
+                homeViewModel.clearSnackbarMessage();
+            }
+        });
+
+        homeViewModel.uiUpdateNeeded.observe(getViewLifecycleOwner(), isNeeded -> {
+            if (isNeeded) {
+                updateCurrentFontScaleUI();
+                // Đặt lại giá trị của LiveData để tránh cập nhật lại khi quay lại màn hình
+                homeViewModel._uiUpdateNeeded.setValue(false);
             }
         });
 

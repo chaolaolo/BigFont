@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -42,6 +43,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
         android:background="@color/colorGreen50"
+        android:paddingBottom="0dp"
         app:itemActiveIndicatorStyle="@style/BottomNavIndicator"
         app:itemIconTint="@color/colorPrimaryDark"
         app:itemTextColor="@color/colorPrimaryDark"

@@ -17,7 +17,7 @@ public interface FontSizeDao {
     @Insert
     void insert(FontSize fontSize);
 
-    @Query("SELECT * FROM font_sizes")
+    @Query("SELECT * FROM font_sizes ORDER BY sizeInPercent ASC")
     List<FontSize> getAllFontSizes();
 
     @Query("SELECT * FROM font_sizes WHERE isDefault = 1 LIMIT 1")

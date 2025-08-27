@@ -33,7 +33,7 @@ public class HomeViewModel extends AndroidViewModel {
     private final MutableLiveData<String> _snackbarMessage = new MutableLiveData<>();
     public LiveData<String> snackbarMessage = _snackbarMessage;
 
-    private final MutableLiveData<Boolean> _uiUpdateNeeded = new MutableLiveData<>();
+    public final MutableLiveData<Boolean> _uiUpdateNeeded = new MutableLiveData<>();
     public LiveData<Boolean> uiUpdateNeeded = _uiUpdateNeeded;
 
     public HomeViewModel(@NonNull Application application) {
