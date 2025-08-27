@@ -34,14 +34,6 @@
                     android:orientation="vertical"
                     android:padding="16dp">
 
-                    <TextView
-                        android:id="@+id/title_text_view"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:text="@string/sample_text_title"
-                        android:textColor="@android:color/black"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
 
                     <ScrollView
                         android:layout_width="match_parent"
@@ -53,6 +45,14 @@
                             android:layout_height="wrap_content"
                             android:orientation="vertical">
 
+                            <TextView
+                                android:id="@+id/title_text_view"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/sample_text_title"
+                                android:textColor="@android:color/black"
+                                android:textSize="20sp"
+                                android:textStyle="bold" />
                             <!-- TextView để hiển thị văn bản cuộn được -->
                             <TextView
                                 android:id="@+id/content_text_view_1"
@@ -161,8 +161,8 @@
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:progressBackgroundTint="@null"
         android:indeterminateTint="@color/colorPrimaryDark"
+        android:progressBackgroundTint="@null"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
