@@ -29,6 +29,9 @@ public class HomeViewModel extends AndroidViewModel {
 
     private static final ExecutorService INIT_EXECUTOR = Executors.newSingleThreadExecutor();
 
+    private final MutableLiveData<String> _snackbarMessage = new MutableLiveData<>();
+    public LiveData<String> snackbarMessage = _snackbarMessage;
+
     public HomeViewModel(@NonNull Application application) {
         super(application);
         fontSizeDao = AppDatabase.getDatabase(application).fontSizeDao();
@@ -47,9 +50,6 @@ public class HomeViewModel extends AndroidViewModel {
     }
 
     private void initializeData() {
-//        AppDatabase.databaseWriteExecutor.execute(() -> {
-//            // Kiểm tra xem database đã có dữ liệu chưa
-//            if (fontSizeDao.getAllFontSizes().isEmpty()) {
         fontSizeDao.insert(new FontSize(100, true));
         fontSizeDao.insert(new FontSize(110, false));
         fontSizeDao.insert(new FontSize(120, false));
@@ -104,8 +104,6 @@ public class HomeViewModel extends AndroidViewModel {
         AppDatabase.getDatabase(getApplication()).tipDao().insert(new Tip("Dành cho Người Dùng Đeo Kính Áp Tròng", "Duy trì kích thước phông chữ ở mức 100% cho người dùng đeo kính áp tròng để tránh căng thẳng mắt. Điều này ngăn ngừa sự khó chịu do sử dụng kéo dài."));
         AppDatabase.getDatabase(getApplication()).tipDao().insert(new Tip("Dành cho Người Dùng với Chứng Khó Đọc", "Tăng kích thước phông chữ lên 140% cho người dùng bị chứng khó đọc. Văn bản lớn hơn và rõ ràng hơn có thể giúp cải thiện tốc độ và sự hiểu biết khi đọc."));
 
-//            }
-//        });
     }
 
     private void loadFontSizes() {
@@ -123,6 +121,24 @@ public class HomeViewModel extends AndroidViewModel {
                 repository.insert(fontSize);
             }
             loadFontSizes();
+        });
+    }
+
+// Trong HomeViewModel.java
+
+    public void insertAndSave(FontSize fontSize, int newFontScale) {
+        AppDatabase.databaseWriteExecutor.execute(() -> {
+            // Thực hiện chèn dữ liệu
+            FontSize existingFontSize = fontSizeDao.getFontSizeByValue(fontSize.getSizeInPercent());
+            if (existingFontSize == null) {
+                repository.insert(fontSize);
+            }
+
+            // Tải lại danh sách sau khi chèn
+            loadFontSizes();
+
+            // Gửi thông điệp thông báo cho Fragment, bao gồm cả giá trị mới
+            _snackbarMessage.postValue("save_font_size:" + newFontScale);
         });
     }
 
@@ -147,6 +163,7 @@ public class HomeViewModel extends AndroidViewModel {
             newFontSize.setDefault(true);
             repository.update(newFontSize);
             loadFontSizes(); // Tải lại danh sách để cập nhật UI
+            _snackbarMessage.postValue("applied_font_size:" + newFontSize.getSizeInPercent());
         });
     }
 
@@ -162,6 +179,7 @@ public class HomeViewModel extends AndroidViewModel {
 
                 // Cập nhật lại danh sách để phản ánh sự thay đổi
                 loadFontSizes();
+                _snackbarMessage.postValue("reset_to_default");
             } catch (Exception e) {
                 e.printStackTrace();
             }

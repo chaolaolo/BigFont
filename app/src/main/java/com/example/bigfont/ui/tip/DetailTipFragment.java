@@ -20,6 +20,7 @@ import com.example.bigfont.data.database.AppDatabase;
 import com.example.bigfont.data.entity.FontSize;
 import com.example.bigfont.databinding.FragmentDetailTipBinding;
 import com.example.bigfont.databinding.FragmentTipsBinding;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,10 +62,10 @@ public class DetailTipFragment extends Fragment {
 
                 if (suggestedFontSize > 0) {
                     applyNewFontSize(suggestedFontSize);
-                    Toast.makeText(requireContext(), "Đã áp dụng cỡ chữ " + suggestedFontSize + "%", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(requireContext(), getString(R.string.applied_font_size) + suggestedFontSize + "%", Toast.LENGTH_SHORT).show();
                     requireActivity().onBackPressed();
                 } else {
-                    Toast.makeText(requireContext(), "Không tìm thấy cỡ chữ gợi ý", Toast.LENGTH_SHORT).show();
+                    showSnackbar("Không tìm thấy cỡ chữ gợi ý");
                 }
             }
         });
@@ -142,18 +143,15 @@ public class DetailTipFragment extends Fragment {
                 fontSizeDao.update(existingFontSize);
             }
 
-//            if (isAdded()) {
-//                requireActivity().runOnUiThread(() -> {
-//                    Toast.makeText(requireContext(), "Đã áp dụng cỡ chữ " + newFontSizeInPercent + "%", Toast.LENGTH_SHORT).show();
-//                    // Quay lại màn hình trước đó
-//                    requireActivity().onBackPressed();
-//                });
-//            }
-
         });
 
     }
 
+    private void showSnackbar(String message) {
+        Snackbar snackbar = Snackbar.make(requireView(), message, Snackbar.LENGTH_SHORT);
+        snackbar.setAction(R.string.dismiss, view -> snackbar.dismiss());
+        snackbar.show();
+    }
 
     @Override
     public void onDestroyView() {

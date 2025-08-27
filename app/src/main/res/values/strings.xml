@@ -18,4 +18,12 @@
     <string name="dark_theme">Chế độ tối</string>
     <string name="delete">Xoá</string>
     <string name="using">ĐANG DÙNG</string>
+    <string name="require_permission">Yêu cầu quyền</string>
+    <string name="u_need_to_accept_permission">Bạn cần cấp quyền để thay đổi cỡ chữ hệ thống. Vui lòng cấp quyền trong cài đặt.</string>
+    <string name="cancel">Hủy</string>
+    <string name="dont_have_permission">Không có quyền, không thể thực hiện thao tác.</string>
+    <string name="save_font_size">"Lưu cỡ chữ "</string>
+    <string name="applied_font_size">"Đã áp dụng cỡ chữ "</string>
+    <string name="deleted_font_size">"Đã xóa cỡ chữ "</string>
+    <string name="dismiss">Đóng</string>
 </resources>

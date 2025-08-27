@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 import com.example.bigfont.R;
 import com.example.bigfont.data.dao.FontSizeDao;
@@ -26,6 +25,7 @@ import com.example.bigfont.data.database.AppDatabase;
 import com.example.bigfont.data.entity.FontSize;
 import com.example.bigfont.databinding.FragmentHomeBinding;
 import com.example.bigfont.viewmodel.HomeViewModel;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;
 
@@ -68,6 +68,27 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
             updateCurrentFontScaleUI();
         });
 
+        homeViewModel.snackbarMessage.observe(getViewLifecycleOwner(), message -> {
+            if (message != null) {
+                if (message.startsWith("applied_font_size:")) {
+                    String[] parts = message.split(":");
+                    if (parts.length > 1) {
+                        int size = Integer.parseInt(parts[1]);
+                        showSnackbar(getString(R.string.applied_font_size) + size + "%", true);
+                    }
+                } else if (message.equals("reset_to_default")) {
+                    showSnackbar(getString(R.string.reset_to_default) + "100%", true);
+                } else if (message.startsWith("save_font_size")) {
+                    String[] parts = message.split(":");
+                    if(parts.length>1){
+                        int size = Integer.parseInt(parts[1]);
+                        showSnackbar(getString(R.string.save_font_size) + size + "%", true);
+                    }
+
+                }
+            }
+        });
+
         binding.sbCustomSize.setMax(350 - 50);
         updateCurrentFontScaleUI();
 
@@ -97,14 +118,13 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
             if (hasWriteSettingsPermission()) {
                 // Thực hiện lưu cỡ chữ tùy chỉnh
                 int fontSizeInPercent = 50 + binding.sbCustomSize.getProgress();
-                homeViewModel.insert(new FontSize(fontSizeInPercent, false));
-                updateCurrentFontScaleUI();
+                homeViewModel.insertAndSave(new FontSize(fontSizeInPercent, false), fontSizeInPercent);
                 Settings.System.putFloat(
                         requireContext().getContentResolver(),
                         Settings.System.FONT_SCALE,
                         fontSizeInPercent / 100f
                 );
-                Toast.makeText(getContext(), "Lưu cỡ chữ tùy chỉnh", Toast.LENGTH_SHORT).show();
+                updateCurrentFontScaleUI();
             } else {
                 showPermissionRequiredDialog();
             }
@@ -114,7 +134,6 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
             if (hasWriteSettingsPermission()) {
                 homeViewModel.resetToDefault();
                 Settings.System.putFloat(requireContext().getContentResolver(), Settings.System.FONT_SCALE, 1.0f);
-                Toast.makeText(getContext(), "Đặt lại cỡ chữ mặc định", Toast.LENGTH_SHORT).show();
                 updateCurrentFontScaleUI();
             } else {
                 showPermissionRequiredDialog();
@@ -132,17 +151,17 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
 
     private void showPermissionRequiredDialog() {
         new AlertDialog.Builder(requireContext())
-                .setTitle("Yêu cầu quyền")
-                .setMessage("Bạn cần cấp quyền để thay đổi cỡ chữ hệ thống. Vui lòng cấp quyền trong cài đặt.")
+                .setTitle(R.string.require_permission)
+                .setMessage(R.string.u_need_to_accept_permission)
                 .setPositiveButton("OK", (dialog, which) -> {
                     // Chuyển người dùng đến màn hình cài đặt
                     Intent intent = new Intent(Settings.ACTION_MANAGE_WRITE_SETTINGS);
                     intent.setData(Uri.parse("package:" + requireContext().getPackageName()));
                     startActivity(intent);
                 })
-                .setNegativeButton("Hủy", (dialog, which) -> {
+                .setNegativeButton(R.string.cancel, (dialog, which) -> {
                     dialog.dismiss();
-                    Toast.makeText(getContext(), "Không có quyền, không thể thực hiện thao tác.", Toast.LENGTH_SHORT).show();
+                    showSnackbar(getString(R.string.dont_have_permission), true);
                 })
                 .show();
     }
@@ -167,6 +186,18 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
             // Cập nhật Adapter để hiển thị trạng thái "HIỆN TẠI"
             fontSizeAdapter.setCurrentFontScale(fontScaleInPercent);
         }
+    }
+
+    private void showSnackbar(String message, boolean showDismissButton) {
+        Snackbar snackbar = Snackbar.make(
+                requireView(),
+                message,
+                Snackbar.LENGTH_SHORT);
+
+        if (showDismissButton) {
+            snackbar.setAction(R.string.dismiss, view -> snackbar.dismiss());
+        }
+        snackbar.show();
     }
 
     @Override
@@ -194,7 +225,7 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
                     Settings.System.FONT_SCALE,
                     fontSize.getSizeInPercent() / 100f
             );
-            Toast.makeText(getContext(), "Đã áp dụng cỡ chữ " + fontSize.getSizeInPercent() + "%", Toast.LENGTH_SHORT).show();
+//            showSnackbar(getString(R.string.applied_font_size) + fontSize.getSizeInPercent() + "%", true);
             updateCurrentFontScaleUI();
         } else {
             showPermissionRequiredDialog();
@@ -206,7 +237,7 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
         if (hasWriteSettingsPermission()) {
             // Xóa cỡ chữ khỏi database
             homeViewModel.deleteFontSize(fontSize);
-            Toast.makeText(getContext(), "Đã xóa cỡ chữ " + fontSize.getSizeInPercent() + "%", Toast.LENGTH_SHORT).show();
+            showSnackbar(getString(R.string.deleted_font_size) + fontSize.getSizeInPercent() + "%", true);
         } else {
             showPermissionRequiredDialog();
         }
