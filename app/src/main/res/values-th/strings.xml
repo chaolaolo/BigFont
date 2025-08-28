@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Big Font</string>
+    <string name="app_name">เพิ่มขนาดตัวอักษร - Big Font</string>
     <string name="hello_blank_fragment">สวัสดี fragment ว่างเปล่า</string>
     <string name="home_page">หน้าแรก</string>
     <string name="setting">การตั้งค่า</string>

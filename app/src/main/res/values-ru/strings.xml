@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Big Font</string>
+    <string name="app_name">Увеличить размер шрифта - Big Font</string>
     <string name="hello_blank_fragment">Привет, пустой фрагмент</string>
     <string name="home_page">Главная страница</string>
     <string name="setting">Настройки</string>

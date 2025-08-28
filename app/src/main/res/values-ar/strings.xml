@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Big Font</string>
+    <string name="app_name">تكبير الخط - Big Font</string>
     <string name="hello_blank_fragment">مرحبًا أيها الجزء الفارغ</string>
     <string name="home_page">الصفحة الرئيسية</string>
     <string name="setting">الإعدادات</string>

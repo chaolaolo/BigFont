@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Big Font</string>
+    <string name="app_name">글꼴 크기 늘리기 - Big Font</string>
     <string name="hello_blank_fragment">안녕하세요, 빈 프래그먼트입니다</string>
     <string name="home_page">홈페이지</string>
     <string name="setting">설정</string>

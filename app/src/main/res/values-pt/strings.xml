@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Big Font</string>
+    <string name="app_name">Aumentar o Tamanho da Fonte - Big Font</string>
     <string name="hello_blank_fragment">Olá fragmento em branco</string>
     <string name="home_page">Página inicial</string>
     <string name="setting">Configurações</string>

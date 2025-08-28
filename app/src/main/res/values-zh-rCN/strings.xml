@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">大字体</string>
+    <string name="app_name">大字体 - Big Font</string>
     <string name="hello_blank_fragment">你好空白片段</string>
     <string name="home_page">主页</string>
     <string name="setting">设置</string>
