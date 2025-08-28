@@ -1,9 +1,55 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Base.Theme.BigFont" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="android:statusBarColor">@color/colorPrimary</item>
-        <item name="android:windowLightStatusBar">true</item>
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+    <style name="Theme.BigFont.Dark" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Ánh xạ các thuộc tính màu với resource trong values-night/colors.xml -->
+        <item name="colorPrimary">@color/colorGreen700</item>
+        <item name="colorOnPrimary">@color/colorGreyscale900</item>
+        <item name="colorPrimaryContainer">@color/colorGreyscale800</item>
+        <item name="colorOnPrimaryContainer">@color/colorGreyscale900</item>
+
+        <item name="colorSecondary">@color/colorGreen400</item>
+        <item name="colorOnSecondary">@color/colorGreen600</item>
+        <item name="colorSecondaryContainer">@color/colorGreen500</item>
+        <item name="colorOnSecondaryContainer">@color/colorGreen600</item>
+
+        <item name="colorTertiary">@color/colorTertiary</item>
+        <item name="colorOnTertiary">@color/colorGreen100</item>
+        <item name="colorTertiaryContainer">@color/colorTertiaryContainer</item>
+        <item name="colorOnTertiaryContainer">@color/colorGreen100</item>
+
+        <item name="colorError">@color/colorWarning500</item>
+        <item name="colorOnError">@color/colorWarning200</item>
+        <item name="colorErrorContainer">@color/colorWarning50</item>
+        <item name="colorOnErrorContainer">@color/colorWarning300</item>
+
+        <item name="android:colorBackground">@color/colorGreyscale800</item>
+        <item name="colorSurface">@color/colorGreyscale800</item>
+        <item name="colorOnSurface">@color/colorGreyscale800</item>
+
+        <!--        dùng cho snack bar-->
+        <item name="colorOnSurfaceVariant">@color/white</item>
+        <item name="colorSurfaceContainer">@color/colorWarning300</item>
+        <item name="colorSurfaceContainerLow">@color/colorSurfaceContainerLow</item>
+        <item name="colorSurfaceContainerLowest">@color/colorSurfaceContainerLowest</item>
+        <item name="colorSurfaceContainerHigh">@color/colorSurfaceContainerHigh</item>
+        <item name="colorSurfaceContainerHighest">@color/colorSurfaceContainerHighest</item>
+        <item name="colorSurfaceBright">@color/colorSurfaceBright</item>
+        <item name="colorSurfaceDim">@color/colorSurfaceDim</item>
+        <item name="colorOutline">@color/colorOutline</item>
+        <item name="colorOutlineVariant">@color/colorOutlineVariant</item>
+        <item name="colorSurfaceVariant">@color/colorSurfaceVariant</item>
+        <item name="colorOnSurfaceInverse">@color/colorOnSurfaceInverse</item>
+        <item name="colorSurfaceInverse">@color/colorSurfaceInverse</item>
+
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/colorNavigationBar</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <item name="applyButtonTextColor">?attr/colorOnPrimary</item>
+        <item name="usingButtonTextColor">?attr/colorError</item>
+        <item name="switchThumbTint">@color/switch_thumb_tint</item>
+        <item name="switchTrackTint">@color/switch_track_tint</item>
     </style>
+
 </resources>

@@ -99,14 +99,18 @@ public class FontSizeAdapter extends RecyclerView.Adapter<FontSizeAdapter.FontSi
                 binding.btnApply.setText(R.string.using);
                 binding.btnApply.setEnabled(false);
                 binding.btnApply.setBackgroundResource(R.drawable.warning_outline);
-                binding.btnApply.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(), R.color.colorWarning500));
+                binding.btnApply.setTextColor(
+                        binding.getRoot().getContext().getTheme().obtainStyledAttributes(new int[] { R.attr.usingButtonTextColor }).getColor(0, 0)
+                );
                 binding.btnDelete.setVisibility(View.GONE);
             } else {
                 String applyText = binding.getRoot().getContext().getString(R.string.apply);
                 binding.btnApply.setText(applyText.toUpperCase());
                 binding.btnApply.setEnabled(true);
                 binding.btnApply.setBackgroundResource(R.drawable.primary_outline);
-                binding.btnApply.setTextColor(ContextCompat.getColor(binding.getRoot().getContext(), R.color.colorPrimaryDark));
+                binding.btnApply.setTextColor(
+                        binding.getRoot().getContext().getTheme().obtainStyledAttributes(new int[] { R.attr.applyButtonTextColor }).getColor(0, 0)
+                );
                 binding.btnDelete.setVisibility(View.VISIBLE);
             }
         }

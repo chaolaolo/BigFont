@@ -1,26 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="colorWarning500">#FF9800</color>
+    <color name="colorWarning300">#FFB74D</color>
+    <color name="colorWarning200">#FFCC80</color>
+    <color name="colorWarning50">#FFF3E0</color>
+
+    <!-- Màu cơ bản cho chế độ sáng -->
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="gray">#808080</color>
 
+    <!-- Màu chủ đạo: Green -->
     <color name="colorPrimary">#029E73</color>
     <color name="colorPrimaryDark">#017F5C</color>
     <color name="colorPrimaryVariant">#006F43</color>
     <color name="colorOnPrimary">#FFFFFF</color>
-
     <color name="colorSecondary">#21CE9C</color>
     <color name="colorSecondaryVariant">#02BE8A</color>
     <color name="colorOnSecondary">#000000</color>
 
+    <!-- Các màu bổ sung từ hình ảnh -->
     <color name="colorGreen200">#7CDFC4</color>
     <color name="colorGreen100">#BEEFE2</color>
     <color name="colorGreen50">#E4F9F3</color>
+    <color name="colorGreen0">#FFFFFF</color>
+    <color name="colorGreen300">#029E73</color>
+    <color name="colorGreen400">#21CE9C</color>
+    <color name="colorGreen500">#02BE8A</color>
+    <color name="colorGreen600">#017F5C</color>
+    <color name="colorGreen700">#006F43</color>
 
-    <!--warning-->
-    <color name="colorWarning500">#FF9800</color>
-    <color name="colorWarning300">#FFB74D</color>
-    <color name="colorWarning200">#FFCC80</color>
-    <color name="colorWarning50">#FFF3E0</color>
+    <color name="colorSurface">@color/white</color>
+    <color name="colorOnSurface">@color/black</color>
+    <color name="colorCardBackground">@color/white</color>
+    <color name="colorOnSurfaceVariant">#49454F</color>
+    <color name="colorSurfaceContainerLowest">#FFFFFF</color>
+    <color name="colorSurfaceContainerLow">#F7F2FA</color>
+    <color name="colorSurfaceContainer">#F3EDF7</color>
+    <color name="colorSurfaceContainerHigh">#ECE6F0</color>
+    <color name="colorSurfaceContainerHighest">#E6E0E9</color>
+    <color name="colorSurfaceBright">#FFFBFE</color>
+    <color name="colorSurfaceDim">#DED8E1</color>
+    <color name="colorOutline">#79747E</color>
+    <color name="colorOutlineVariant">#C9C5CA</color>
+    <color name="colorSurfaceVariant">#E7E0EB</color>
+    <color name="colorOnSurfaceInverse">#1D1B20</color>
+    <color name="colorSurfaceInverse">#322F35</color>
+    <color name="colorNavigationBar">#FFFFFF</color>
+
+    <color name="colorTertiary">#FFFFFF</color>
+    <color name="colorOnTertiary">#000000</color>
+    <color name="colorTertiaryContainer">@color/colorGreen50</color>
+    <color name="colorOnTertiaryContainer">#4F378B</color>
+    <!--    <color name="switch_thumb_tint">@color/switch_thumb_tint</color>-->
+    <!--    <color name="switch_track_tint">@color/switch_track_tint</color>-->
 </resources>

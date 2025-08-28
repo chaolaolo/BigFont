@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="?attr/android:colorBackground"
     android:padding="16dp"
     tools:context=".ui.tip.DetailTipFragment">
 
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:text="Title"
             android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -32,7 +32,7 @@
             android:layout_height="wrap_content"
             android:text="Content"
             android:textAlignment="textStart"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSurface"
             android:textSize="14sp" />
     </LinearLayout>
 
@@ -43,9 +43,9 @@
         android:layout_height="wrap_content"
         android:background="@drawable/primary_outline"
         android:text="@string/apply"
-        android:textColor="@color/colorPrimaryDark"
-        app:backgroundTint="@null"
+        android:textColor="?attr/colorSecondaryContainer"
         android:textSize="16sp"
+        app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />

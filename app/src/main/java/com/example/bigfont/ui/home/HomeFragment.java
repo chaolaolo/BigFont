@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -205,6 +206,16 @@ public class HomeFragment extends Fragment implements FontSizeAdapter.OnItemClic
         if (showDismissButton) {
             snackbar.setAction(R.string.dismiss, view -> snackbar.dismiss());
         }
+        TypedValue typedValue = new TypedValue();
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnErrorContainer, typedValue, true);
+        int colorOnErrorContainer = typedValue.data;
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnSurfaceVariant, typedValue, true);
+        int colorOnSurfaceVariant = typedValue.data;
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorSurface, typedValue, true);
+        int colorSurface = typedValue.data;
+        snackbar.setActionTextColor(colorOnErrorContainer);
+        snackbar.setBackgroundTint(colorOnSurfaceVariant);
+        snackbar.setTextColor(colorSurface);
         snackbar.show();
     }
 

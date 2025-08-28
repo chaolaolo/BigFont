@@ -8,6 +8,7 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String LANGUAGE_KEY = "language_key";
+    private static final String THEME_KEY = "theme_key";
 
     @Override
     protected void attachBaseContext(Context newBase) {
@@ -47,7 +49,19 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Đặt theme trước khi gọi super.onCreate()
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        boolean isDarkTheme = prefs.getBoolean(THEME_KEY, false);
+        if (isDarkTheme) {
+//            setTheme(R.style.Theme_BigFont_Dark);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//            setTheme(R.style.Theme_BigFont_Light);
+        }
+
         super.onCreate(savedInstanceState);
+
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -74,5 +88,10 @@ public class MainActivity extends AppCompatActivity {
                 }
             });
         }
+
+
+
+
+
     }
 }

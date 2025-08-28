@@ -4,13 +4,14 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="4dp"
-    android:background="@color/white"
+    android:background="?attr/colorTertiary"
     android:elevation="4dp"
     app:cardCornerRadius="8dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorTertiary"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="100%"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/colorPrimaryContainer"
             android:textSize="16sp"
             android:textStyle="bold" />
 
@@ -28,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="ABC abc 123"
-            android:textColor="@color/black"
+            android:textColor="?attr/colorOnSecondary"
             android:textSize="14sp"
             android:textStyle="bold" />
 
@@ -44,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/transparent"
                 android:text="@string/delete"
-                android:textColor="@color/black"
+                android:textColor="?attr/colorError"
                 android:textSize="16sp" />
 
             <Button
@@ -53,7 +54,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/primary_outline"
                 android:text="@string/apply"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="?attr/applyButtonTextColor"
                 android:textSize="14sp"
                 app:backgroundTint="@null" />
         </LinearLayout>

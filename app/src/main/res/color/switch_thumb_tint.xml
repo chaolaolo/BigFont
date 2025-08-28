@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Khi Switch được bật (checked) -->
-    <item android:color="@color/colorPrimaryDark" android:state_checked="true" />
+    <item android:color="@color/colorGreen400" android:state_checked="true" />
     <!-- Khi Switch tắt (unchecked) -->
     <item android:color="@color/gray" android:state_checked="false" />
 </selector>
