@@ -45,4 +45,5 @@
     <string name="arabic">อาหรับ</string>
     <string name="thai">ภาษาไทย</string>
     <string name="laos">ภาษาลาວ</string>
+    <string name="language_applied">ภาษาที่ใช้: </string>
 </resources>

@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +85,16 @@ public class FontWeightFragment extends Fragment implements FontWeightAdapter.On
                 Snackbar.LENGTH_SHORT
         );
         snackbar.setAction(R.string.dismiss, view -> snackbar.dismiss());
+        TypedValue typedValue = new TypedValue();
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnErrorContainer, typedValue, true);
+        int colorOnErrorContainer = typedValue.data;
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorOnSurfaceVariant, typedValue, true);
+        int colorOnSurfaceVariant = typedValue.data;
+        requireContext().getTheme().resolveAttribute(com.google.android.material.R.attr.colorSurface, typedValue, true);
+        int colorSurface = typedValue.data;
+        snackbar.setActionTextColor(colorOnErrorContainer);
+        snackbar.setBackgroundTint(colorOnSurfaceVariant);
+        snackbar.setTextColor(colorSurface);
         snackbar.show();
     }
 

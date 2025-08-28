@@ -45,4 +45,5 @@
     <string name="arabic">アラビア語</string>
     <string name="thai">タイ語</string>
     <string name="laos">ラオ語</string>
+    <string name="language_applied">適用された言語: </string>
 </resources>

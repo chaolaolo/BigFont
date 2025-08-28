@@ -45,4 +45,5 @@
     <string name="arabic">Арабский</string>
     <string name="thai">Тайский</string>
     <string name="laos">Лаосский</string>
+    <string name="language_applied">Применен язык: </string>
 </resources>

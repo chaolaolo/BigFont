@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorWarning500">#FFB74D</color>
+    <color name="colorWarning300">#FFCC80</color>
+    <color name="colorWarning200">#FFF3E0</color>
+    <color name="colorWarning50">#FFF3E0</color>
+
+    <!-- Màu cơ bản cho chế độ tối -->
+    <color name="black">#FFFFFFFF</color>
+    <color name="white">#FF000000</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="gray">#B0B0B0</color>
+
+    <!-- Màu chủ đạo: Greyscale -->
+    <color name="colorPrimary">#1A2A34</color>
+    <color name="colorPrimaryDark">#001018</color>
+    <color name="colorPrimaryVariant">#344450</color>
+    <color name="colorOnPrimary">#D9DDE1</color>
+    <color name="colorSecondary">#687787</color>
+    <color name="colorSecondaryVariant">#4E5D6B</color>
+    <color name="colorOnSecondary">#F7F8F9</color>
+
+    <!-- Các màu bổ sung từ hình ảnh -->
+    <!--    <color name="colorGreen200">#7CDFC4</color>-->
+    <!--    <color name="colorGreen100">#BEEFE2</color>-->
+    <!--    <color name="colorGreen50">#E4F9F3</color>-->
+    <!--    <color name="colorGreen300">#029E73</color>-->
+    <!--    <color name="colorGreen400">#21CE9C</color>-->
+    <!--    <color name="colorGreen500">#02BE8A</color>-->
+    <!--    <color name="colorGreen600">#017F5C</color>-->
+    <!--    <color name="colorGreen700">#006F43</color>-->
+    <color name="colorGreyscale900">#1A2A34</color>
+    <color name="colorGreyscale800">#344450</color>
+    <color name="colorGreen700">#4E5D6B</color>
+    <color name="colorGreen600">#687787</color>
+    <color name="colorGreen500">#8996A2</color>
+    <color name="colorGreen400">#B3BAC3</color>
+    <color name="colorGreen300">#D9DDE1</color>
+    <color name="colorGreen200">#EFF1F3</color>
+    <color name="colorGreen100">#F7F8F9</color>
+    <color name="colorGreen50">#FFFFFF</color>
+    <!--    <color name="colorGreyscale0">#001018</color>-->
+
+    <color name="colorSurface">@color/colorGreyscale900</color>
+    <color name="colorOnSurface">@color/white</color>
+    <color name="colorCardBackground">@color/colorGreyscale800</color>
+    <color name="colorOnSurfaceVariant">#CAC4D0</color>
+    <color name="colorSurfaceContainerLowest">#0A090D</color>
+    <color name="colorSurfaceContainerLow">#141218</color>
+    <color name="colorSurfaceContainer">#1E1C22</color>
+    <color name="colorSurfaceContainerHigh">#28262C</color>
+    <color name="colorSurfaceContainerHighest">#313036</color>
+    <color name="colorSurfaceBright">#3B383E</color>
+    <color name="colorSurfaceDim">#1D1B20</color>
+    <color name="colorOutline">#938F99</color>
+    <color name="colorOutlineVariant">#49454F</color>
+    <color name="colorSurfaceVariant">#49454F</color>
+    <color name="colorOnSurfaceInverse">#F4EFF4</color>
+    <color name="colorSurfaceInverse">#E6E0E9</color>
+    <color name="colorNavigationBar">#0A090D</color>
+
+    <color name="colorBlueGrey">#8A96A0</color>
+
+    <color name="colorTertiary">@color/colorBlueGrey</color>
+    <color name="colorOnTertiary">#FFFFFF</color>
+    <color name="colorTertiaryContainer">#344450</color>
+    <color name="colorOnTertiaryContainer">#F4EFF4</color>
+
+
+    <!--    <color name="switch_thumb_tint">@color/colorSecondary</color>-->
+    <!--    <color name="switch_track_tint">@color/colorSecondaryVariant</color>-->
+</resources>

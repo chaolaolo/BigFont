@@ -45,4 +45,5 @@
     <string name="arabic">아랍어</string>
     <string name="thai">태국어</string>
     <string name="laos">라오어</string>
+    <string name="language_applied">적용된 언어: </string>
 </resources>

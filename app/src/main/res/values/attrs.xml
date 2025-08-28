@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="bottomNavIndicatorStyle" format="reference" />
+    <attr name="applyButtonTextColor" format="color" />
+    <attr name="usingButtonTextColor" format="color" />
+    <attr name="colorWarning500" format="color" />
+    <attr name="colorWarning300" format="color" />
+    <attr name="colorWarning200" format="color" />
+    <attr name="colorWarning50" format="color" />
+
+    <attr name="colorGreen200" format="color" />
+    <attr name="colorGreen100" format="color" />
+    <attr name="colorGreen50" format="color" />
+
+    <attr name="switchThumbTint" format="color" />
+    <attr name="switchTrackTint" format="color" />
+    <attr name="colorCardBackground" format="color" />
+
+
+    <attr name="colorGreen300" format="color" />
+    <attr name="colorGreen400" format="color" />
+    <attr name="colorGreen500" format="color" />
+    <attr name="colorGreen600" format="color" />
+    <attr name="colorGreen700" format="color" />
+    <attr name="colorGreyscale900" format="color" />
+    <attr name="colorGreyscale800" format="color" />
+    <attr name="colorGreyscale700" format="color" />
+    <attr name="colorGreyscale600" format="color" />
+    <attr name="colorGreyscale500" format="color" />
+    <attr name="colorGreyscale400" format="color" />
+    <attr name="colorGreyscale300" format="color" />
+    <attr name="colorGreyscale200" format="color" />
+    <attr name="colorGreyscale100" format="color" />
+    <attr name="colorGreyscale50" format="color" />
+    <attr name="colorGreyscale0" format="color" />
+
+</resources>

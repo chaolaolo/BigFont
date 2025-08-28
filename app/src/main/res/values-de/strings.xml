@@ -45,8 +45,5 @@
     <string name="arabic">Arabisch</string>
     <string name="thai">Thailändisch</string>
     <string name="laos">Laotisch</string>
-
-    <string name="tip_elderly_title">eng</string>
-    <string name="tip_elderly_description">eng</string>
-
+    <string name="language_applied">Sprache angewendet: </string>
 </resources>

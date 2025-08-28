@@ -45,10 +45,5 @@
     <string name="arabic">Árabe</string>
     <string name="thai">Tailandés</string>
     <string name="laos">Laosiano</string>
-
-    <string name="tip_elderly_title">eng</string>
-    <string name="tip_elderly_description">eng</string>
-    <string name="tip_sunlight_title">engDành cho Đọc dưới Ánh Sáng Mặt Trời</string>
-    <string name="tip_sunlight_description">engĐặt kích thước phông chữ vào khoảng 110% đến 130% để cải thiện khả năng đọc dưới ánh sáng mặt trời. Điều này giảm độ chói và cải thiện độ tương phản.</string>
-
+    <string name="language_applied">Idioma aplicado: </string>
 </resources>

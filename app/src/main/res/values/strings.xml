@@ -104,5 +104,6 @@
 
     <string name="tip_dyslexia_title">Dành cho Người Dùng với Chứng Khó Đọc</string>
     <string name="tip_dyslexia_description">Tăng kích thước phông chữ lên 140% cho người dùng bị chứng khó đọc. Văn bản lớn hơn và rõ ràng hơn có thể giúp cải thiện tốc độ và sự hiểu biết khi đọc.</string>
+    <string name="language_applied">Đã áp dụng ngôn ngữ: </string>
 
 </resources>

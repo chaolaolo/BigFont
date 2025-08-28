@@ -45,4 +45,5 @@
     <string name="arabic">Arabo</string>
     <string name="thai">Tailandese</string>
     <string name="laos">Laotiano</string>
+    <string name="language_applied">Lingua applicata: </string>
 </resources>

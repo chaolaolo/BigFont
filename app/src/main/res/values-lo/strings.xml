@@ -45,4 +45,5 @@
     <string name="arabic">ອາຣັບ</string>
     <string name="thai">ພາສາໄທ</string>
     <string name="laos">ພາສາລາວ</string>
+    <string name="language_applied">ພາສາທີ່ຖືກນຳໃຊ້: </string>
 </resources>
